@@ -1,0 +1,209 @@
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+^j::
+loop {
+	Random, randfn, 1, 100
+	firstNames := ["Jane", "Hannah", "Kathryn", "Maria", "Samuel", "Benjamin", "Frank", "Dale", "Joseph", "Mary", "Jordan", "Jill", "Martin", "Brown", "John", "Robert", "Roy", "Greg", "Karl", "Craig", "Bill", "Venessa", "Jared", "Jack", "Bob", "Steven", "Adam", "Eve", "James", "Michael", "William", "David", "Richard", "Thomas", "Charles", "Christopher", "Daniel", "Patricia", "Jennifer", "Linda", "Elizabeth", "Barbara", "Susan", "Jessica", "Sarah", "Karen", "Nancy", "Lisa", "Betty", "Margaret", "Sandra", "Ashley", "Kimberly", "Emily", "Donna", "Michelle", "Dorothy", "Carol", "Amanda", "Melissa", "Deborah", "Stephanie", "Matthew", "Anthony", "Mark", "Donald", "Paul", "Andrew", "Joshua", "Kenneth", "Kevin", "Brian", "George", "Edward", "Ronald", "Timothy", "Jason", "Jeffrey", "Ryan", "Gary", "Nicholas", "Eric", "Larry", "Justin", "Scott", "Brandon", "Rebecca", "Sharon", "Laura", "Cinthia", "Kathleen", "Amy", "Shirley", "Angela", "Helen", "Anna", "Brenda", "Pamela", "Nicole", "Emma"]
+
+	Random, randln, 1, 100
+	lastNames := ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", "White", "Harris", "Sanchez", "Clark", "Adams", "Wilson", "Burton", "Harris", "Stevens", "Robinson", "Lewis", "Walker", "Payne", "Baker", "Owen", "Holmes", "Chapman", "Webb", "Allen", "Jones", "Davidson", "Foster", "Matthews", "White", "Griffiths", "Knight", "Corbyn", "Young", "Evans", "Smith", "Wright", "Jenkins", "Green", "Hughes", "Taylor", "Hall", "Anderson", "Armstrong", "Cox", "Atkinson", "Bell", "Carter", "Cole", "Collins", "Dawson", "Bailey", "Ball", "Dixon", "Edwards", "Brown", "Clarke", "Yakes", "Zelly", "Zouch", "Fisher", "Fletcher", "Ford", "Fox", "Gibson", "Grahm", "Grant", "Gray", "Sallow", "Fernsby", "Villin", "Miracle", "Dankworth", "Relish", "Loughty", "Birdwhistle", "Berrycloth", "Palmer", "Peterson", "Quill", "Quintrell", "Ratliff", "Stewart"]
+
+	Random, randun, 1, 70
+	userNames := ["smithster1", "jnj123", "bormorg12", "abc9995", "thebigbang999", "rob1bob", "rob2bob", "bigerbanger", "yourmoment234", "sofardar33", "nineteen19", "twelve12", "neverguess99", "brokentooth19", "jackandjill1", "jjnin93", "toothnnail12", "thirteen14", "cortex3", "smaillmail1", "threebirds1", "adamsfamily123", "harrisb1", "stevens1", "robinson1", "lewis123", "shobdo12", "moonstar1", "startsmoon2", "allthesingle9", "niner1niner", "daniellewis", "lindajones", "lisawhite", "andygriffiths1", "corbynblue123", "younger1", "allenjoines1", "wrightlight1", "sandragreen2", "carrietaylor", "smallhall1", "knightlight", "knight1", "coxsox", "paulandrew", "paulandrew1", "joshuacorbin1", "baileysummers1", "brownclown3", "small1wall", "yakessnakes", "zellykelly", "chase1294949", "small3call", "smokes908", "brokenglass9", "greentee2", "smallwallball3", "greensocks9", "wallball1995", "greensocks23", "eatthegreen43", "yakessnakes", "angela0987", "onetwothree333", "peterson998", "pertersberg3", "quailmail3", "ratsnc2"]
+
+
+	passWords := ["123", "Pass", "Word", "Dont", "1995", "1994", "95", "94", "93", "92", "91", "90", "88", "87", "86", "85", "84", "83", "82", "81", "80", "79", "78", "77", "76", "75", "74", "73", "72", "71", "70", "69", "68", "67", "66", "65", "64", "63", "62", "61", "60", "59", "19", "19", "19", "pass", "word", "Name", "John", "Sarah", "Dear", "Larry", "Juliet", "Brandbaby", "Patriots", "Baby", "Girl", "Son", "Died", "Shaker", "Quaker", "MlM", "Mlb", "Nfl", "Socks", "Rox", "Sour", "Power", "Puff", "Pink", "Purple", "Proud", "Blm", "Black", "Lives", "Saved", "Grace", "1234", "12345", "321", "098", "asdf", "qwerty", "onetwothree", "David", "Jessie", "Grandpa", "Grandma", "Football", "Soccer", "Baseball", "Ball", "Mama", "Papa", "Papi", "Proud", "Name", "Don", "Married", "00", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011"]
+	Random, randp, 1, 111
+	Random, randpp, 1, 111
+	Random, randppp, 1, 111
+	Random, randP, 1, 111
+	Random, randPP, 1, 111
+	Random, randPPP, 1, 111
+
+	creditCards := ["378282246310005", "371449635398431", "378734493671000", "5610591081018250", "30569309025904", "6011000990139424", "3530111333300000", "3566002020360505", "5105105105105100", "4012888888881881", "3566111111111113", "6250947000000014", "4916474086308295", "4556089684110649", "4716523237357460", "5321800832925089", "5283570886631166", "5283570886631166", "5465317876202446", "4111111145551142", "4988438843884305", "4166676667666746", "4646464646464644", "4000620000000007", "4000060000000006", "4293189100000008", "4988080000000000", "4444333322221111", "4001590000000001", "4000180000000002", "4000020000000000", "4000160000000004", "4002690000000008", "4400000000000008", "4484600000000004", "4607000000000009", "4131840000000003", "4035501000000008", "4151500000000008", "4571000000000001", "4199350000000002", "4001020000000009", "2222400070000005", "5555341244441115", "5577000055770004", "2222410740360010", "2222410700000002", "2222400010000008", "2223000048410010", "2222400060000007", "2223520443560010", "2222400030000004", "5100060000000002", "2222400050000009"]
+	Random, randcc, 1, 54
+
+	Random, pinNumber, 1000, 9999
+
+	Random, cvNumber, 100, 999
+
+	Random, randEmail, 1, 70
+	Random, randE, 1, 7
+	emails := ["@gmail.com", "@yahoo.com", "@aol.com", "@hotmail.com", "@outlook.com", "@gmail.com", "@gmail.com"]
+
+	; Begin
+
+	Send, http://gpau.cc/f1hjz
+	Send, {enter}
+
+	sleep, 10000
+
+	Send, `t
+	Send, % userNames[randun]
+	Send, `t
+	Send, % passWords[randp]
+	Send, % passWords[randpp]
+	Send, % passWords[randppp]
+	Send, {enter}
+
+	sleep, 7000
+
+	Send, `t
+	Send, `t
+	Send, `t
+	Send, `t
+	Send, `t
+	Send, `t
+	Send, `t
+
+	Send, % userNames[randEmail]
+	Send, % emails[randE]
+	Send, {enter}
+
+	sleep 8000
+	
+	Send, `t
+	Send, % passWords[randP]
+	Send, % passWords[randPP]
+	Send, % passWords[randPPP]
+	Send, {enter}
+	
+	sleep 8000
+	
+	Send, `t
+	Send, % passWords[randP]
+	Send, % passWords[randPP]
+	Send, % passWords[randPPP]
+	Send, {enter}
+	
+	sleep 8000
+	
+	Send, `t
+	Send, % firstNames[randfn]
+	Send, {space}
+	Send, % lastNames[randln]
+	Send, `t
+	Send, % creditCards[randcc]
+	Send, `t
+	Send, 0
+	Random, randa, 1, 9
+	Random, randb, 3, 6
+	Send, %randa%
+	Send, 2
+	Send, %randb%
+	Send, `t
+	Send, %cvNumber%
+	Send, `t
+	Send, %pinNumber%
+	Send, `t
+	
+	;letters := ["a", "b", "c", "d", "e", "f", "h", "i", "l", "m", "n", "o", "p", "r", "s", "t", "u"]
+	;Random, randLet, 1, 17
+	;Random, randLett, 1, 17
+	
+	;Send, % letters[randLet]
+	;Send, % letters[randLett]
+	
+	Random, randAddr, 1, 9
+	Random, randAddrr, 0, 9
+
+	Send, %randAddr%
+	Send, %randAddrr%
+	
+	sleep 1000
+	
+	Send, {Down}
+	Send, {enter}
+	
+	;Send, `t
+	;Send, `t
+	;Random, randzip, 10000, 99999
+	;Send, %randzip%
+	Send, {enter}
+	
+	
+	sleep 1000
+	
+	Send, {enter}
+	
+	sleep 8000
+	
+	Send, `t
+	sleep 1000
+	
+	Random, month, 1, 9
+	Random, day, 10, 28
+	Random, year, 1940, 2010
+	
+	Send, 0
+	Send, %month%
+	Send, %day%
+	Send, %year%
+	Send, `t
+	Random, randmn, 1, 100
+	Send, % lastNames[randmn]
+	Send, `t
+	Random, randssn, 100000000, 999999999
+	Send, %randssn%
+	Send, `t
+	Random, randphone, 11000000000, 19999999999
+	Send, %randphone%
+	Send, {enter}
+	
+	sleep, 8000
+	
+	Send, `t
+	Send, {space}
+	Send, `t
+	Send, {space}
+	
+	sleep 5000
+	
+	Send, {click}
+	
+	sleep 3000
+	
+	fileNames := ["IMG_0033.jpg", "IMG_0034.jpg", "IMG_0035.jpg", "IMG_0036.jpg", "IMG_0037.jpg", "IMG_0038.jpg", "IMG_0039.jpg", "IMG_0040.jpg", "IMG_0041.jpg", "IMG_0042.jpg", "IMG_0043.jpg", "IMG_0044.jpg"]
+	Random, randFile, 1, 12
+	Send, % fileNames[randFile]
+	Send, {enter}
+	
+	sleep 5000
+	
+	Send, `t
+	Send, {enter}
+	
+	sleep 8000 ; probably will need a lot longer than this
+	
+	Send, {click}
+	
+	sleep, 3000
+	
+	Random, randFiles, 1, 12
+	Send % fileNames[randFiles]
+	Send, {enter}
+	
+	sleep 5000
+	
+	Send `t
+	Send, {enter}
+	
+	sleep 8000 ; probably will need a lot longer than this
+	
+	Send, ^w
+	
+	sleep 1000
+	
+	Send, ^+n
+	
+	sleep 1000
+	
+	
+		
+}
+
+Escape::
+ExitApp
+Return
